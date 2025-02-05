@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="/Styles/styles.css" rel="stylesheet" type="text/css">
+    <title>Login</title>
+    <script>
+        function toggleLoginRegister() {
+            var link = document.getElementById("toggleLink");
+            var header = document.getElementById("pageHeader");
+            var button = document.getElementById("authButton");
+
+            var phoneField = document.getElementById("phoneField");
+            var gmailField = document.getElementById("gmailField");
+            var genderField = document.getElementById("genderField");
+
+            if (link.innerHTML === "Register") {
+                link.innerHTML = "LogIn";
+                header.innerHTML = "Register";
+                button.innerHTML = "Register";
+
+                phoneField.classList.remove("hidden");
+                gmailField.classList.remove("hidden");
+                genderField.classList.remove("hidden");
+            } else {
+                link.innerHTML = "Register";
+                header.innerHTML = "LogIn";
+                button.innerHTML = "LogIn";
+         
+                phoneField.classList.add("hidden");
+                gmailField.classList.add("hidden");
+                genderField.classList.add("hidden");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class = "main">
+        <div class="container">
+            <div class="containerBlock" id="content">
+
+                <h1 id="pageHeader">LogIn</h1>
+                <form class="Form" method="post" action="/main.html">
+
+                    <p>
+                        <input type="text" name="userName" placeholder="Username" size="18" id="username" class="inputBlock" />
+                    </p>
+
+                    <p>
+                        <input type="password" name="userPassword" placeholder="Password" id="password" class="inputBlock" />
+                    </p>
+
+
+                    <p id="phoneField" class="hidden">
+                        <input type="text" name="userPhone" id="phone" placeholder="+80(dd)dd-dd-ddd" class="inputBlock" />
+                    </p>
+
+                    <p id="gmailField" class="hidden">
+                        <input type="text" name="userGmail" id="gmail" placeholder="Введите адрес почты" size="18" maxlength="11" class="inputBlock" />
+                    </p>
+
+                    <div id="genderField" class="hidden containerRadioBtn">
+                        <label>
+                            <input type="radio" value="мужской" class="radio" checked name="gender" />мужской
+                        </label>
+                        <label>
+                            <input type="radio" value="женский" class="radio" name="gender" />женский
+                        </label>
+                    </div>
+
+
+
+                    <div class="containerBtn">
+
+                        <button type="submit" class="btnLogIn" id="authButton">LogIn</button>
+
+                        <a href="#" id="toggleLink" onclick="toggleLoginRegister();">Register</a>
+
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
